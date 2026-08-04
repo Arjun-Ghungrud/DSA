@@ -9,7 +9,7 @@ public:
         vector<int>ans;
         int a=mp.begin()->first;
         int b=mp.rbegin()->first;
-        for(int i=a;i<=b;i++){
+        for(int i=a+1;i<b;i++){
             if(mp.find(i)==mp.end())ans.push_back(i);
         }
         return ans;
