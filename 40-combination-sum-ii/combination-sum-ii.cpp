@@ -15,7 +15,7 @@ public:
         helper(i+1,tar-nums[i],v,nums,ans);
         v.pop_back();
         int j = i + 1;
-        while (j<nums.size() && nums[j]==nums[i]) {
+        while (j<nums.size() && nums[j]==nums[i]) { //skip duplicates 
             j++;
         }
         helper(j,tar,v,nums,ans);
