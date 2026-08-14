@@ -4,7 +4,7 @@ public:
         int n=s.size();
         int ans=0;
         int j=0;
-        unordered_map<char,int>mp;
+        unordered_map<int,int>mp;
         for(int i=0;i<n;i++){
             mp[s[i]]++;
             while(mp[s[i]]>2){
