@@ -11,19 +11,18 @@
  */
 class Solution {
 public:
-    vector<int> helper(TreeNode*root){
+    pair<int,int> helper(TreeNode*root){
         if(root==NULL){
             return {0,0};
         }
-        vector<int>leftn=helper(root->left);
-        vector<int>rightn=helper(root->right);
-        vector<int>nums(2);
-        nums[0]=root->val+leftn[1]+rightn[1];
-        nums[1]=max(leftn[0],leftn[1])+max(rightn[0],rightn[1]);
-        return nums;
+        auto leftn=helper(root->left);
+        auto rightn=helper(root->right);
+        int val1=root->val+leftn.second+rightn.second;
+        int val2=max(leftn.first,leftn.second)+max(rightn.first,rightn.second);
+        return {val1,val2};
     }
     int rob(TreeNode* root) {
-        vector<int>opt=helper(root);
-        return max(opt[0],opt[1]);
+        auto opt=helper(root);
+        return max(opt.first,opt.second);
     }
 };
