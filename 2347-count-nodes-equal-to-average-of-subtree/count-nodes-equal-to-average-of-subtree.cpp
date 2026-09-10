@@ -11,21 +11,20 @@
  */
 class Solution {
 public:
-    vector<int> helper(TreeNode* root,int &count){
+    int count=0;
+    vector<int> helper(TreeNode* root){
         if(root==NULL){
             return {0,0};
         }
-        vector<int>ltree=helper(root->left,count);
-        vector<int>rtree=helper(root->right,count);
+        vector<int>ltree=helper(root->left);
+        vector<int>rtree=helper(root->right);
         int sum=root->val+ltree[0]+rtree[0];
         int nodes=1+ltree[1]+rtree[1];
-        int avg=sum/nodes;
-        if(avg==root->val)count+=1;
+        if(sum/nodes==root->val)count++;
         return {sum,nodes};
     }
     int averageOfSubtree(TreeNode* root) {
-        int count=0;
-        helper(root,count);
+        helper(root);
         return count;
     }
 };
