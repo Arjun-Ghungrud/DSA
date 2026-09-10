@@ -9,11 +9,11 @@ public:
         }
         temp.push_back('0');
         helper(temp,n,st,ans);
-        // if(ans!="") return;
+        if(ans!="") return;
         temp.pop_back();
         temp.push_back('1');
         helper(temp,n,st,ans);
-        // if (ans!="") return;
+        if (ans!="") return;
         temp.pop_back();
     }
     string findDifferentBinaryString(vector<string>& nums) {
