@@ -26,9 +26,9 @@ public:
         return root;
     }
     TreeNode* addOneRow(TreeNode* root, int val, int depth) {
-        if (depth == 1) {
-            TreeNode* newRoot = new TreeNode(val);
-            newRoot->left = root;
+        if(depth == 1){
+            TreeNode* newRoot=new TreeNode(val);
+            newRoot->left=root;
             return newRoot;
         }
         return helper(root,val,depth,1);
